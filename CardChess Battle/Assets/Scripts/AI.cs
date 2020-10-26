@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AI : MonoBehaviour
 {
-    int minMaxDepth; // AI level of inteligence
-    GameManager gameManager;
+    [SerializeField] int minMaxDepth = 2; // AI level of inteligence
+    [SerializeField] GameManager gameManager = null;
 
 
     List<ChessPiece> simulatedAIPieces = new List<ChessPiece>();
@@ -61,7 +61,7 @@ public class AI : MonoBehaviour
         }
 
         // Play the best simulated move
-        bestChosenPiece.Move();
+        bestChosenPiece.Move(bestChosenPiece.hypoteticalBestMove);
     }
 
     void SimulateBestMove(List<ChessPiece> pieces)
